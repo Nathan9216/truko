@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curiosidades</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      perspective: 1500px;
+    }
+
+    .deck-container {
+      position: relative;
+      width: 1000px;
+      height: 480px;
+      /* Centraliza melhor o conjunto */
+      margin: 0 auto;
+    }
+
+    .card {
+      position: absolute;
+      width: 320px;
+      height: 450px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      transition: all 0.6s ease;
+      cursor: pointer;
+    }
+
+    /* Cartas empilhadas com leve inclinação */
+    .card1 {
+      top: 25px;
+      left: 0;
+      z-index: 1;
+      transform: rotateZ(-8deg);
+    }
+    .card2 {
+      top: 12px;
+      left: 25px;
+      z-index: 2;
+      transform: rotateZ(-8deg);
+    }
+    .card3 {
+      top: 0;
+      left: 50px;
+      z-index: 3;
+      transform: rotateZ(-8deg);
+    }
+
+    /* Ao passar o mouse: separam lado a lado e ficam RETAS */
+    .deck-container:hover .card1 {
+      transform: rotateZ(0deg) translateX(-340px);
+    }
+    .deck-container:hover .card2 {
+      transform: rotateZ(0deg) translateX(0);
+    }
+    .deck-container:hover .card3 {
+      transform: rotateZ(0deg) translateX(340px);
+    }
+
+    /* Verso da carta (totalmente branco) */
+    .card-back {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #ffffff;
+      z-index: 2;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Frente da carta (curiosidade) */
+    .card-front {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #ffffff;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .card:hover .card-back {
+      opacity: 0;
+    }
+
+    .card:hover .card-front {
+      opacity: 1;
+    }
+
+    .emoji {
+      font-size: 5.5rem;
+      margin-bottom: 30px;
+    }
+
+    .curiosidade-texto {
+      font-size: 1.22rem;
+      line-height: 1.65;
+      color: #222;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-container">
+    <!-- Carta 1 -->
+    <div class="card card1" id="card1">
+      <div class="card-back"></div>
+      <div class="card-front">
+        <div class="emoji">🍯</div>
+        <div class="curiosidade-texto">O mel nunca estraga. Arqueólogos encontraram mel comestível em tumbas egípcias com mais de 3.000 anos!</div>
+      </div>
+    </div>
+
+    <!-- Carta 2 -->
+    <div class="card card2" id="card2">
+      <div class="card-back"></div>
+      <div class="card-front">
+        <div class="emoji">🌕</div>
+        <div class="curiosidade-texto">As pegadas dos astronautas da Apollo ainda estão na Lua, pois não há vento ou erosão para apagá-las.</div>
+      </div>
+    </div>
+
+    <!-- Carta 3 -->
+    <div class="card card3" id="card3">
+      <div class="card-back"></div>
+      <div class="card-front">
+        <div class="emoji">🐙</div>
+        <div class="curiosidade-texto">Um polvo tem três corações e o sangue azul!</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
